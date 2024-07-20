@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casual</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div id="menu-bar" class="fas fa-bars"></div>
+        <a href="index.html" class="logo">
+            <img src="images/logo.png" alt="REID Logo" style="height: 90px; vertical-align: middle;">
+            REID SHOES
+        </a>
+        <nav class="navbar">
+            <a href="index.html#home">home</a>
+            <a href="index.html#products">products</a>
+            <a href="index.html#featured">featured</a>
+            <a href="index.html#review">review</a>
+            <div class="dropdown">
+                <a href="#acara" class="dropbtn">categories</a>
+                <div class="dropdown-content">
+                    <a href="cat1.html" data-en="Special Occasion">Special Occasion</a>
+                    <a href="cat2.html" data-en="Casual">Casual</a>
+                    <a href="cat3.html" data-en="Work Styling">Work Styling</a>
+                </div>
+            </div>
+        </nav>
+        <div class="icons">
+            <a href="#" class="fas fa-heart" id="wishlist"></a>
+            <a href="keranjang.html" class="fas fa-shopping-cart"></a>
+            <a href="user.html" class="fas fa-user"></a>
+        </div>
+    </header>
+    <script>
+        const wishlist = document.getElementById('wishlist');
+        wishlist.addEventListener('click', () => {
+            window.location.href = 'hati.html';
+        });
+    </script>
+    
+    <!-- Custom JavaScript File Link -->
+    <script src="script.js"></script>
+</body>
+</html>
+

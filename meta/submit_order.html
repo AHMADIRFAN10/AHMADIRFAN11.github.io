@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Order - Reid Shoes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="style.css"> <!-- Pastikan Anda memiliki style.css yang sesuai -->
+</head>
+<body>
+
+<header>
+    <div id="menu-bar" class="fas fa-bars"></div>
+    <a href="index.html" class="logo">
+        <img src="images/logo.png" alt="REID Logo" style="height: 90px; vertical-align: middle;">
+        REID SHOES
+    </a>
+    <nav class="navbar">
+        <a href="index.html#home">home</a>
+        <a href="index.html#products">products</a>
+        <a href="index.html#featured">featured</a>
+        <a href="index.html#review">review</a>
+    </nav>
+    <div class="icons">
+        <a href="#" class="fas fa-heart"></a>
+        <a href="#" class="fas fa-shopping-cart"></a>
+        <a href="#" class="fas fa-user"></a>
+    </div>
+</header>
+
+<section class="order-confirmation" id="order-confirmation">
+    <h1 class="heading"> <span>Order</span> Confirmation </h1>
+
+    <!-- Display order details -->
+    <div class="order-details" id="order-details">
+        <h2>Thank you for your order!</h2>
+        <p><strong>Name:</strong> <span id="nama"></span></p>
+        <p><strong>Email:</strong> <span id="email"></span></p>
+        <p><strong>Address:</strong> <span id="alamat"></span></p>
+        <p><strong>City / Regency:</strong> <span id="kota_kab"></span></p>
+        <p><strong>Country:</strong> <span id="negara"></span></p>
+        <p><strong>Payment Method:</strong> <span id="payment_method"></span></p>
+        <p><strong>Shipping Partner:</strong> <span id="mitra_pengiriman"></span></p>
+        <p><strong>Shipping Method:</strong> <span id="shipping_method"></span></p>
+        <p><strong>Shoe Size:</strong> <span id="ukuran_sepatu"></span></p>
+        <p><strong>Phone:</strong> <span id="phone"></span></p>
+    </div>
+</section>
+
+<script>
+    // Function to get query parameters from URL
+    function getQueryParams() {
+        const params = {};
+        const queryString = window.location.search.substring(1);
+        const regex = /([^&=]+)=([^&]*)/g;
+        let m;
+
+        while (m = regex.exec(queryString)) {
+            params[decodeURIComponent(m[1])] = decodeURIComponent(m[2].replace(/\+/g, ' '));
+        }
+
+        return params;
+    }
+
+    // Display order details on the page
+    function displayOrderDetails() {
+        const params = getQueryParams();
+        
+        document.getElementById('nama').textContent = params.nama || '';
+        document.getElementById('email').textContent = params.email || '';
+        document.getElementById('alamat').textContent = params.Alamat || '';
+        document.getElementById('kota_kab').textContent = params['kota/kab'] || '';
+        document.getElementById('negara').textContent = params.negara || '';
+        document.getElementById('payment_method').textContent = params.payment_method || '';
+        document.getElementById('mitra_pengiriman').textContent = params.mitra_pengiriman || '';
+        document.getElementById('shipping_method').textContent = params.shipping_method || '';
+        document.getElementById('ukuran_sepatu').textContent = params.ukuran_sepatu || '';
+        document.getElementById('phone').textContent = params.phone || '';
+    }
+
+    // Call the function to display order details when the page loads
+    window.onload = displayOrderDetails;
+</script>
+
+</body>
+</html>

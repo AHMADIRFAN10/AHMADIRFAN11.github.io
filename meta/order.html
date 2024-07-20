@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order - Reid Shoes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="style.css"> <!-- Pastikan Anda memiliki style.css yang sesuai -->
+</head>
+<body>
+
+<header>
+    <div id="menu-bar" class="fas fa-bars"></div>
+    <a href="index.html" class="logo">
+        <img src="images/logo.png" alt="REID Logo" style="height: 90px; vertical-align: middle;">
+        REID SHOES
+    </a>
+    <nav class="navbar">
+        <a href="index.html#home">home</a>
+        <a href="index.html#products">products</a>
+        <a href="index.html#featured">featured</a>
+        <a href="index.html#review">review</a>
+    </nav>
+    <div class="icons">
+        <a href="#" class="fas fa-heart"></a>
+        <a href="#" class="fas fa-shopping-cart"></a>
+        <a href="#" class="fas fa-user"></a>
+    </div>
+</header>
+
+<section class="order" id="order">
+    <h1 class="heading"> <span>Order</span> Now </h1>
+
+    <!-- Display selected product details -->
+    <div class="selected-product" id="selected-product">
+        <img src="" alt="Product Image" class="product-image" id="product-image">
+        <div class="product-details">
+            <h2 id="product-name"></h2>
+            <p id="product-description"></p>
+            <p><strong>Price:</strong> <span id="product-price"></span></p>
+        </div>
+    </div>
+
+    <script>
+        // Function to save product data to the selected product div
+        function saveProductData(image, name, description, price) {
+            document.getElementById('product-image').src = image;
+            document.getElementById('product-name').textContent = name;
+            document.getElementById('product-description').textContent = description;
+            document.getElementById('product-price').textContent = price;
+            document.getElementById('selected-product').style.display = 'block';
+        }
+    </script>
+
+    <!-- Order form -->
+    <div class="order-form-container">
+        <form action="submit_order.html" method="get" onsubmit="return validateForm()">
+            <input type="hidden" name="product_id" value="1">
+            <div class="inputBox">
+                <div class="input">
+                    <span>Nama :</span>
+                    <input type="text" placeholder="Masukan Nama Lengkap" name="nama" required>
+                </div>
+                <div class="input">
+                    <span>Email :</span>
+                    <input type="email" placeholder="Masukan email" name="email" required>
+                </div>
+            </div>
+            <div class="inputBox">
+                <div class="input">
+                    <span>Alamat :</span>
+                    <input type="text" placeholder="Masukan alamat anda" name="Alamat" required>
+                </div>
+                <div class="input">
+                    <span>Kota / Kabupaten :</span>
+                    <input type="text" placeholder="" name="kota/kab" required>
+                </div>
+            </div>
+            <div class="inputBox">
+                <div class="input">
+                    <span>Negara :</span>
+                    <input type="text" placeholder="Enter your state" name="negara" required value="Indonesia">
+                </div>
+                <div class="input">
+                    <span>Payment Method :</span>
+                    <select name="payment_method" required>
+                        <option value="">-- Select Payment Method --</option>
+                        <option value="bank_transfer">Bank Transfer</option>
+                        <option value="paypal">Cash</option>
+                    </select>
+                </div>
+                <div class="input">
+                    <span>Mitra Pengiriman :</span>
+                    <select name="mitra_pengiriman" required>
+                        <option value="">-- Select Mitra Pengiriman --</option>
+                        <option value="JNT">JNT</option>
+                        <option value="Si Cepat">Si Cepat</option>
+                        <option value="Ninja X-press">Ninja X-press</option>
+                    </select>
+                </div>
+                <div class="input">
+                    <span>Shipping Method:</span>
+                    <select name="shipping_method" required>
+                        <option style="text-align:center;" value="">-- Select Shipping Method --</option>
+                        <option value="regular_delivery">Regular Delivery (Rp. 5000) - 2-4 hari untuk wilayah Jabodetabek</option>
+                        <option value="fast_delivery">Fast Delivery (Rp. 20000) - 1 hari untuk pengiriman langsung</option>
+                        <option value="same_day_delivery">Same Day Delivery (Rp. 45000) - pengiriman langsung</option>
+                    </select>
+                </div>
+                <div class="input">
+                    <span>Ukuran Sepatu :</span>
+                    <select name="ukuran_sepatu" required>
+                        <option value="">-- Pilih Ukuran Sepatu --</option>
+                        <option value="36">36</option>
+                        <option value="37">37</option>
+                        <option value="38">38</option>
+                        <option value="39">39</option>
+                        <option value="40">40</option>
+                        <option value="41">41</option>
+                        <option value="42">42</option>
+                        <option value="43">43</option>
+                        <option value="44">44</option>
+                        <option value="45">45</option>
+                    </select>
+                </div>
+            </div>
+            <div class="inputBox">
+                <div class="input">
+                    <span>Phone :</span>
+                    <input type="text" placeholder="Enter your phone number" name="phone" required>
+                </div>
+            </div>
+            <input type="submit" value="Place Order" class="btn">
+        </form>
+    </div>
+</section>
+
+<script src="script.js"></script> <!-- Pastikan Anda memiliki script.js yang sesuai -->
+</body>
+</html>
